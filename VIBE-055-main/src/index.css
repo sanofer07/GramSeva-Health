@@ -1,0 +1,172 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    --background: 200 20% 98%;
+    --foreground: 210 40% 15%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 210 40% 15%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 40% 15%;
+
+    --primary: 199 89% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 152 60% 45%;
+    --secondary-foreground: 0 0% 100%;
+
+    --muted: 200 15% 94%;
+    --muted-foreground: 210 20% 45%;
+
+    --accent: 25 95% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 200 20% 88%;
+    --input: 200 20% 88%;
+    --ring: 199 89% 48%;
+
+    --radius: 1rem;
+
+    /* Custom tokens */
+    --medical-blue: 199 89% 48%;
+    --medical-blue-light: 199 80% 95%;
+    --medical-green: 152 60% 45%;
+    --medical-green-light: 152 50% 94%;
+    --warm-orange: 25 95% 55%;
+    --warm-orange-light: 25 90% 95%;
+    --soft-purple: 250 60% 60%;
+    --soft-purple-light: 250 50% 95%;
+
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(199 89% 48%) 0%, hsl(152 60% 45%) 100%);
+    --gradient-card: linear-gradient(180deg, hsl(0 0% 100%) 0%, hsl(200 20% 98%) 100%);
+    --gradient-warm: linear-gradient(135deg, hsl(25 95% 55%) 0%, hsl(35 95% 60%) 100%);
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px -2px hsl(210 40% 15% / 0.08);
+    --shadow-md: 0 8px 24px -8px hsl(210 40% 15% / 0.12);
+    --shadow-lg: 0 16px 48px -12px hsl(210 40% 15% / 0.16);
+    --shadow-glow: 0 0 40px hsl(199 89% 48% / 0.2);
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 210 40% 10%;
+    --foreground: 200 20% 98%;
+
+    --card: 210 35% 14%;
+    --card-foreground: 200 20% 98%;
+
+    --popover: 210 35% 14%;
+    --popover-foreground: 200 20% 98%;
+
+    --primary: 199 89% 55%;
+    --primary-foreground: 210 40% 10%;
+
+    --secondary: 152 55% 50%;
+    --secondary-foreground: 210 40% 10%;
+
+    --muted: 210 30% 20%;
+    --muted-foreground: 200 15% 65%;
+
+    --accent: 25 95% 60%;
+    --accent-foreground: 210 40% 10%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 210 30% 22%;
+    --input: 210 30% 22%;
+    --ring: 199 89% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold tracking-tight;
+  }
+}
+
+@layer components {
+  .medical-card {
+    @apply bg-card rounded-2xl p-6 shadow-md border border-border/50;
+    box-shadow: var(--shadow-md);
+  }
+
+  .medical-card-hover {
+    @apply medical-card transition-all duration-300 hover:shadow-lg hover:-translate-y-1;
+  }
+
+  .gradient-text {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-hero);
+  }
+
+  .glow-effect {
+    box-shadow: var(--shadow-glow);
+  }
+}
+
+@layer utilities {
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite 2s;
+  }
+
+  .animate-pulse-slow {
+    animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-20px);
+    }
+  }
+
+  .fade-in-up {
+    animation: fadeInUp 0.6s ease-out forwards;
+  }
+
+  @keyframes fadeInUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+}
